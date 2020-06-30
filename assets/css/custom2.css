@@ -1,0 +1,25 @@
+#sample_iscar, #sample_tractors, #sample_fdtractors_type, #sample_masseytractors_type, #sample_appliedregistered{
+	display: none;
+}
+.footer{
+	margin-bottom: 150px;
+	float: left;
+	width: 100%;
+}
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+
+table tr th{
+	text-transform: capitalize;
+}
+
+#navbar .navbar-nav li:hover{
+	background-color: #eee;
+}
+
+/*#navbar .navbar-nav li{
+	height: 50px;
+}*/
