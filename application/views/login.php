@@ -86,7 +86,7 @@
     <fieldset>
       <input placeholder="Password" name="password" type="password" tabindex="3" required autofill="off">
     </fieldset>
-	  <a href="#" class="forgetpassword">Forget Password</a>
+	  <a href="forgetpassword" class="forgetpassword">Forget Password</a>
     <fieldset>
         <span style="position: relative;"><i style="  position: absolute;
     right: 38%;

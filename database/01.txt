@@ -1,0 +1,51 @@
+Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `email`, `password`) VALUES
+(1, 'Admin', 'motyanibabu11@gmail.com', 'admin');
+
+
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `product_description` varchar(255) NOT NULL,
+  `video` varchar(255) NOT NULL,
+  `original_price` float NOT NULL,
+  `discounted_price` float NOT NULL,
+  `created_date` date NOT NULL DEFAULT current_timestamp(),
+  `updated_date` date NOT NULL,
+  `deleted_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- Table structure for table `product_image`
+--
+
+CREATE TABLE `product_image` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `product_image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table structure for table `slider_image`
+--
+
+CREATE TABLE `slider_image` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

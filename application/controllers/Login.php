@@ -8,13 +8,13 @@ class Login extends CI_Controller
 		$this->load->model('Admin_model');
 	}
 	public function index(){
-	$this->load->view('login');
+		$this->load->view('login');
 	}
 	public function validate(){
 		$data=array(
-		'email_id' => $this->input->post("eamil_id"),
-		'password' =>$this->input->post("password"),
-			);
+			'email' => $this->input->post("eamil_id"),
+			'password' =>$this->input->post("password"),
+		);
 
 		$res = $this->Admin_model->checkadmindata($data);
 		if(empty($res))
@@ -23,16 +23,24 @@ class Login extends CI_Controller
 			redirect("login");
 		}
 		else{
-			$this->load->view('includes/head-styles');
-			$this->load->view('includes/header');
-			$this->load->view('includes/sidebar');
-			$this->load->view('index');
-			$this->load->view('includes/footer');
-
-
-
+			$session_array = array("userid"=>$res["id"],"userexist"=>true,'authentiicated'=>TRUE);
+			$this->session->set_userdata($session_array);
+			redirect('Dashboard');
 		}
 	}
+	public function restpassword(){
+		$this->load->view('forgetpassword');
+	}
+	public function checkemailfornewpassword(){
+
+	}
+	function logout()
+	{
+		$this->session->unset_userdata("userexist");
+		$this->session->set_flashdata("logout_msg","<div class='alert alert-info alert-dismissible mb-2' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Logout successfully.</strong></div>");
+		redirect("login");
+	}
+
 }
 
 ?>
