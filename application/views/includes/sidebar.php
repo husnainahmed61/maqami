@@ -35,6 +35,18 @@
 					<li><a href="view-product">List Product</a></li>
 				</ul>
 			</li>
+			<li class="treeview">
+				<a href="#">
+					<i class="ti-shopping-cart"></i><span>Product Variation</span>
+					<span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+				</a>
+				<ul class="treeview-menu" style="display: none;">
+					<li><a href="prductVariation">Add Variation</a></li>
+					<li><a href="list-variation">List Variation</a></li>
+				</ul>
+			</li>
 			<li class="treeview  ">
 				<a href="#">
 					<i class="ti-tag"></i><span>Settings</span>

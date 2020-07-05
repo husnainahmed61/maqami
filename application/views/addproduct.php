@@ -9,7 +9,7 @@
 			<h1>Add Product</h1>
 			<!-- <small class="">Manage your credit customer</small> -->
 			<ol class="breadcrumb">
-				<li><a href="index.php"><i class="pe-7s-home"></i> Home</a></li>
+				<li><a href="#"><i class="pe-7s-home"></i> Home</a></li>
 				<li><a href="#">Product</a></li>
 				<li class="active">Add Product</li>
 			</ol>
