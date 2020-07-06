@@ -49,3 +49,23 @@ CREATE TABLE `slider_image` (
   `post_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `product` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+ALTER TABLE `product_image` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+ALTER TABLE `slider_image` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+ALTER TABLE `users` CHANGE `id` `id` INT NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+ALTER TABLE `product` CHANGE `created_date` `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE `product` CHANGE `updated_date` `updated_at` DATETIME NULL DEFAULT NULL;
+
+ALTER TABLE `product` CHANGE `deleted_date` `deleted_at` DATETIME NULL DEFAULT NULL;
+
+ALTER TABLE `product_image` ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `product_image`;
+
+ALTER TABLE `slider_image` ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `image`;
+
+ALTER TABLE `product` ADD `uri` VARCHAR(500) NULL AFTER `product_name`;

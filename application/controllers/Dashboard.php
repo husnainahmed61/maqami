@@ -11,11 +11,19 @@ class Dashboard extends CI_Controller
 			$this->session->set_flashdata("login_error", "<div class='alert alert-danger'>Please login first</div>");
 			redirect("login");
 		}
+
+		$config = array(
+				'table' => 'mytable',
+				'id' => 'id',
+				'field' => 'uri',
+				'title' => 'title',
+				'replacement' => 'dash' // Either dash or underscore
+			);
+		$this->load->library('slug', $config);
 	}
 
 	public function index()
 	{
-
 		$this->load->view('includes/header');
 		$this->load->view('includes/sidebar');
 		$this->load->view('index');
@@ -79,8 +87,6 @@ class Dashboard extends CI_Controller
 					$this->db->insert('slider_image', $data);
 				}
 				$this->session->set_flashdata("udate_msg", "<div class='alert alert-success alert-dismissible mb-2' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Product Added Successfully.</strong></div>");
-
-
 				redirect('product');
 			}
 		}
@@ -88,7 +94,6 @@ class Dashboard extends CI_Controller
 
 	public function Listproduct()
 	{
-
 		$data['product'] = $this->Admin_model->getprooduct();
 		$this->load->view('includes/header');
 		$this->load->view('includes/sidebar');
@@ -97,7 +102,6 @@ class Dashboard extends CI_Controller
 
 	public function updateproductdata($id)
 	{
-
 		$data['getproductimage'] = $this->db->select('*')->from('product_image')->where('post_id', $id)->get()->result_array();
 		$data['getsliderimage'] = $this->db->select('*')->from('slider_image')->where('post_id', $id)->get()->result_array();
 		$data['getproduct'] = $this->db->select('*')->from('product')->where('id', $id)->get()->row_array();

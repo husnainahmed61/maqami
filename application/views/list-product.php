@@ -52,7 +52,7 @@
 									<td><?=$value['product_description'];?></td>
 									<td><?=$value['original_price'];?></td>
 									<td><?=$value['discounted_price'];?></td>
-									<td><?=$value['created_date'];?></td>
+									<td><?=$value['created_at'];?></td>
 									<td>
 										<a href="update-product/<?php echo $value['id']; ?>" class="btn btn-info btn-sm" title="Edit" style="padding: 5px;">
 <!--											<i class="la la-edit white"></i>-->

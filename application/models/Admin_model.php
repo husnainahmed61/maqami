@@ -2,6 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_model extends CI_Model
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$config = array(
+			'table' => 'product',
+			'id' => 'id',
+			'field' => 'uri',
+			'title' => 'title',
+			'replacement' => 'dash' // Either dash or underscore
+		);
+		$this->load->library('slug', $config);
+	}
 	function checkadmindata($data)
 	{
 		$this->db->where($data);
@@ -10,14 +22,17 @@ class Admin_model extends CI_Model
 	}
 	function addproduct($product_name,$original_price,$discounted_price,$product_description,$updatedimagename)
 	{
+		$slug = $this->slug->create_uri(array('title' => $product_name));
 		$data = array
 		(
 			"product_name"=>$product_name,
+			'uri' => $slug,
 			"original_price"=>$original_price,
 			"discounted_price"=>$discounted_price,
 			"product_description"=>$product_description,
 			"video"=>$updatedimagename
 		);
+
 		$this->db->insert("product",$data);
 		return $this->db->insert_id();
 
@@ -37,9 +52,11 @@ class Admin_model extends CI_Model
 	}
 	function updateproduct($product_name,$original_price,$discounted_price,$product_description,$updatedimagename,$productid)
 	{
+		$slug = $this->slug->create_uri($product_name, $productid);
 		$data = array
 		(
 			"product_name" => $product_name,
+			'uri' => $slug,
 			"original_price" => $original_price,
 			"discounted_price" => $discounted_price,
 			"product_description" => $product_description,
