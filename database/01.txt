@@ -69,3 +69,35 @@ ALTER TABLE `product_image` ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_
 ALTER TABLE `slider_image` ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `image`;
 
 ALTER TABLE `product` ADD `uri` VARCHAR(500) NULL AFTER `product_name`;
+
+-- Table structure for table `product_variation_value`
+--
+
+CREATE TABLE `product_variation_value` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `product_varation_id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `product_variation_value`
+--
+ALTER TABLE `product_variation_value`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `product_variation_value`
+--
+ALTER TABLE `product_variation_value`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;

@@ -182,7 +182,7 @@ class Dashboard extends CI_Controller
 		if ($this->input->post('variation') == 'Yes') {
 			$data = array('variation_name' => $this->input->post('variation_name'));
 			$this->db->insert('product_variation', $data);
-			$this->session->set_flashdata("udate_msg", "<div class='alert alert-success alert-dismissible mb-2' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Product Added Successfully.</strong></div>");
+			$this->session->set_flashdata("udate_msg", "<div class='alert alert-success alert-dismissible mb-2' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Variation Add Successfully.</strong></div>");
 			redirect('prductVariation');
 		}
 	}
@@ -214,6 +214,30 @@ class Dashboard extends CI_Controller
 		}
 		else{
 			echo "error";
+		}
+	}
+	public function addvariationinproduct($id){
+		$data['productid']=$id;
+		$data['variation']=$this->db->select('*')->from('product_variation')->get()->result_array();
+		$this->load->view('includes/header');
+		$this->load->view('includes/sidebar');
+		$this->load->view('variationinproduct',$data);
+	}
+	public function addvariationvalue(){
+
+		if ($this->input->post('addvariationValue')=='Yes'){
+
+			$postid=$this->input->post('postid');
+			$variationid=$this->input->post('variationid');
+				$name = count($_POST['variation_name']);
+				for ($i=0;$i<$name;$i++){
+					$data=array('post_id'=>$postid,
+						'product_varation_id'=>$variationid,
+						'value'=>$_POST['variation_name'][$i]);
+					$res=$this->db->insert('product_variation_value',$data);
+				}
+			$this->session->set_flashdata("udate_msg", "<div class='alert alert-success alert-dismissible mb-2' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Variation Value Added Successfully.</strong></div>");
+		redirect('view-product');
 		}
 	}
 }
