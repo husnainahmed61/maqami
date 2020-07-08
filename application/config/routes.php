@@ -49,10 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Login';
+$route['default_controller'] = 'Product';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['validate']='Login/validate';
+$route['admin']='Login';
+$route['Dashboard']='Dashboard';
 $route['forgetpassword']='Login/restpassword';
 $route['setpassword']='Login/checkemailfornewpassword';
 $route['product']='Dashboard/addproduct';
@@ -63,4 +65,5 @@ $route['prductVariation']='dashboard/prductVariationView';
 $route['add-variation']='dashboard/addVariation';
 $route['list-variation']='dashboard/listVariation';
 $route['updatevariation-view/(:num)']='dashboard/updatevariation/$1';
+$route['([^/]+)/?'] = 'product/singleProduct/$1';
 
