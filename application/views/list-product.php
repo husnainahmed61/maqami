@@ -8,6 +8,7 @@
 		</div>
 		<div class="header-title">
 			<h1>Product</h1>
+
 			<!-- <small class="">Manage your credit customer</small> -->
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="pe-7s-home"></i> Home</a></li>
@@ -26,6 +27,9 @@
 					<div class="panel-heading">
 						<div class="panel-title">
 							<h4>View Product</h4>
+							<?php if($this->session->flashdata("udate_msg")){
+								echo $this->session->flashdata("udate_msg");
+							} ?>
 						</div>
 					</div>
 
@@ -54,9 +58,9 @@
 									<td><?=$value['discounted_price'];?></td>
 									<td><?=$value['created_date'];?></td>
 									<td>
-										<a href="update-product/<?php echo $value['id']; ?>" class="btn btn-info btn-sm" title="Edit" style="padding: 5px;">
-<!--											<i class="la la-edit white"></i>-->
-											Edit
+										<a href="update-product/<?php echo $value['id']; ?>" class="btn btn-info btn-sm" title="Edit" style="padding: 5px;">Edit
+										</a>
+										<a href="add-variationinproduct/<?php echo $value['id']; ?>" class="btn btn-danger btn-sm" title="Edit" style="padding: 5px;">Add Variation
 										</a>
 									</td>
 								</tr>

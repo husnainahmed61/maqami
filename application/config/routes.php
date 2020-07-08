@@ -63,4 +63,4 @@ $route['prductVariation']='dashboard/prductVariationView';
 $route['add-variation']='dashboard/addVariation';
 $route['list-variation']='dashboard/listVariation';
 $route['updatevariation-view/(:num)']='dashboard/updatevariation/$1';
-
+$route['add-variationinproduct/(:num)']='dashboard/addvariationinproduct/$1';
