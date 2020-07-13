@@ -8,7 +8,7 @@
 				 <img src="assets/images/user2-160x160.png" class="img-circle" alt="User Image">
 			 </div> -->
 			<div class="info">
-				<p>Super Med Menu</p>
+				<p>Arabian Deal Menu</p>
 				<!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
 			</div>
 		</div>
@@ -31,8 +31,8 @@
                     </span>
 				</a>
 				<ul class="treeview-menu" style="display: none;">
-					<li><a href="product">Add Product</a></li>
-					<li><a href="view-product">List Product</a></li>
+					<li><a href="<?=base_url('add-product')?>">Add Product</a></li>
+					<li><a href="<?=base_url('view-product')?>">List Product</a></li>
 				</ul>
 			</li>
 			<li class="treeview">
@@ -43,8 +43,8 @@
                     </span>
 				</a>
 				<ul class="treeview-menu" style="display: none;">
-					<li><a href="prductVariation">Add Variation</a></li>
-					<li><a href="list-variation">List Variation</a></li>
+					<li><a href="<?=base_url('product-variation')?>">Add Variation</a></li>
+					<li><a href="<?=base_url('list-variation')?>">List Variation</a></li>
 				</ul>
 			</li>
 			<li class="treeview  ">

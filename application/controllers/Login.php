@@ -20,7 +20,7 @@ class Login extends CI_Controller
 		if(empty($res))
 		{
 			$this->session->set_flashdata("login_error","<div class='alert alert-danger alert-dismissible mb-2' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Invalid email or password.</strong></div>");
-			redirect("login");
+			redirect("admin");
 		}
 		else{
 			$session_array = array("userid"=>$res["id"],"userexist"=>true,'authentiicated'=>TRUE);

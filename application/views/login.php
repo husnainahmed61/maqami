@@ -53,7 +53,7 @@
         <div class="col-md-12 text-center">
             <div class="div-img" style="
 ">
-            	<img src="<?=base_url()?>assets/images/bigfish.png" style="width: 35%;">
+            	<img src="<?=base_url()?>assets/images/logo.jpg" style="width: 35%;">
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
                   ?>
 	  </div>
     <fieldset>
-      <input placeholder="Username or Email" name="eamil_id" type="text" tabindex="1" required autofill="off">
+      <input placeholder="Email" name="eamil_id" type="email" tabindex="1" required autofill="off">
     </fieldset>
     <fieldset>
       <input placeholder="Password" name="password" type="password" tabindex="3" required autofill="off">

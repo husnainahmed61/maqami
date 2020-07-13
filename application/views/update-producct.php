@@ -39,86 +39,76 @@
 							<input type="hidden" name="productid" value="<?php echo $getproduct['id'];?>">
 							<div class="row">
 								<div class="col-sm-6">
-									<label for="expire_date" class=" col-form-label">Product Image
-										<i class="text-danger">*</i>
-									</label><br>
-									<input class="form-control" id="category_name" name="product_image[]" type="file" required multiple accept=".JPEG,.GIF,.PNG">
-								</div>
-								<div class="col-sm-6">
-									<table class="table">
-										<tr>
-											<?php foreach ($getproductimage as $img) {?>
-												<td><img src="<?=base_url()?>uploads/productimage/<?php echo $img['product_image']?>" class="img-responsive" width="100px" style="float: left;height: 100px;"></td>
-											<?php } ?>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-6">
-									<label for="expire_date" class=" col-form-label">Slider Image
-										<i class="text-danger">*</i>
-									</label><br>
-									<input class="form-control" id="category_name" name="slider_image[]" type="file" required  multiple accept=".JPEG,.GIF,.PNG" ">
-								</div>
-								<div class="col-sm-6">
-									<table class="table">
-										<tr>
-
-									<?php foreach ($getsliderimage as $img) {?>
-										<td><img src="<?=base_url()?>uploads/slider/<?php echo $img['image']?>" class="img-responsive" width="100px" style="float: left;height: 100px;
-"></td>
-									<?php } ?>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-6">
 									<label for="expire_date" class=" col-form-label">Product Name
 										<i class="text-danger">*</i>
 									</label><br>
-									<input class="form-control" id="category_name" name="product_name" type="text" required value="<?php echo $getproduct['product_name'];?>">
+									<input class="form-control" name="product_name" type="text" required value="<?php echo $getproduct['product_name'];?>">
 								</div>
 								<div class="col-sm-6">
-									<label for="expire_date" class=" col-form-label">Orignial Price
+									<label for="expire_date" class=" col-form-label">Actual Price
 										<i class="text-danger">*</i>
 									</label><br>
-									<input class="form-control" id="category_name" name="original_price" type="text" required value="<?php echo $getproduct['original_price'];?>">
+									<input class="form-control" name="original_price" type="number" min="0" required value="<?php echo $getproduct['original_price'];?>">
 
 								</div>
 							</div>
 							<div class="row">
-
 								<div class="col-sm-6">
 									<label for="expire_date" class=" col-form-label">Discounted Price
-										<i class="text-danger">*</i>
 									</label><br>
-									<input class="form-control" id="category_name" name="discounted_price" type="text" required value="<?php echo $getproduct['discounted_price'];?>">
+									<input class="form-control" name="discounted_price" type="number" min="0" value="<?php echo $getproduct['discounted_price'];?>">
 								</div>
 								<div class="col-sm-6" align="left">
-									<label for="expire_date" class=" col-form-label">Product Discription
-										<i class="text-danger">*</i>
+									<label for="expire_date" class=" col-form-label">Product Description
 									</label><br>
-									<textarea class="form-control" name="product_description" type="text" required><?php echo $getproduct['product_description'];?></textarea>
+									<textarea class="form-control" name="product_description" type="text"><?php echo $getproduct['product_description'];?></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="expire_date" class=" col-form-label">Product Images
+									</label><br>
+									<input class="form-control" id="category_name" name="product_image[]" type="file" multiple accept=".JPEG,.GIF,.PNG">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<?php foreach ($getproductimage as $img) {?>
+										<img src="<?=base_url()?>uploads/productimage/<?php echo $img['product_image']?>" class="img-responsive" width="100px" style="float: left;height: 100px; margin: 10px">
+									<?php } ?>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="expire_date" class=" col-form-label">Slider Images
+									</label><br>
+									<input class="form-control" id="category_name" name="slider_image[]" type="file"  multiple accept=".JPEG,.GIF,.PNG" ">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<?php foreach ($getsliderimage as $img) {?>
+										<img src="<?=base_url()?>uploads/slider/<?php echo $img['image']?>" class="img-responsive" width="100px" style="float: left;height: 100px; margin: 10px">
+									<?php } ?>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
 									<label for="expire_date" class=" col-form-label"> Video
-										<i class="text-danger">*</i>
 									</label><br>
-									<input class="form-control" id="category_name" name="video" type="file" required value="<?php echo $getproduct['video'];?>" accept=".mp4,.3gp,.flv,.mp3"><br>
+									<input class="form-control" id="category_name" name="video" type="file" value="<?php echo $getproduct['video'];?>" accept=".mp4,.3gp,.flv,.mp3"><br>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-sm-6">
 									<br>
-									<iframe width="100%" height="" src="<?=base_url()?>/uploads/<?php echo $getproduct['video'];?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<iframe width="100%" height="" src="<?=base_url()?>/uploads/<?php echo $getproduct['video'];?>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
 							</div>
 
 							<div class="form-group row" style="margin-top: 10px;">
 								<div class="col-sm-12">
-									<button type="submit" value="Yes" name="editproduct"class="btn btn-large btn-success" style="padding: 7px;font-size: 21px; float: right;">Update Product</button>
+									<button type="submit" value="Yes" name="editproduct"class="btn btn-success" style="padding: 7px;font-size: 21px; float: right;">Update Product</button>
 								</div>
 							</div>
 						</form>

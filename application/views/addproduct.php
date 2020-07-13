@@ -35,68 +35,53 @@
 					<!-- form here -->
 
 					<div class="panel-body addit">
-						<form action="add-product" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-
-
+						<form action="save-product" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 							<div class="row">
-										<div class="col-sm-5">
-										<label for="expire_date" class=" col-form-label">Product Name
-											<i class="text-danger">*</i>
-										</label><br>
-											<input class="form-control" id="category_name" name="product_name" type="text" required>
-										</div>
-								<div class="col-sm-5">
-									<label for="expire_date" class=" col-form-label">Orignial Price
+								<div class="col-sm-6">
+									<label for="expire_date" class=" col-form-label">Product Name
 										<i class="text-danger">*</i>
 									</label><br>
-									<input class="form-control" id="category_name" name="original_price" type="text" required>
+									<input class="form-control" name="product_name" type="text" required>
+								</div>
+								<div class="col-sm-6">
+									<label for="expire_date" class=" col-form-label">Actual Price
+										<i class="text-danger">*</i>
+									</label><br>
+									<input class="form-control" name="original_price" type="number" min="0" required>
 
 								</div>
 							</div>
 							<div class="row">
-
-								<div class="col-sm-5">
+								<div class="col-sm-6">
 									<label for="expire_date" class=" col-form-label">Discounted Price
-										<i class="text-danger">*</i>
 									</label><br>
-									<input class="form-control" id="category_name" name="discounted_price" type="text" required>
+									<input class="form-control" name="discounted_price" type="number" min="0">
 								</div>
-									<div class="col-sm-5">
-										<label for="expire_date" class=" col-form-label"> Video
-											<i class="text-danger">*</i>
-										</label><br>
-										<input class="form-control" id="category_name" name="video" type="file" required accept=".mp4,.3gp,.flv,.mp3">
-									</div>
-
+								<div class="col-sm-6">
+									<label for="expire_date" class=" col-form-label">Product Description
+									</label><br>
+									<textarea class="form-control" id="category_name" name="product_description" type="text"></textarea>
+								</div>
 							</div>
 							<div class="row">
-
-								<div class="col-sm-5">
-									<label for="expire_date" class=" col-form-label">Product Image
-										<i class="text-danger">*</i>
+								<div class="col-sm-4">
+									<label for="expire_date" class=" col-form-label"> Video
 									</label><br>
-									<input class="form-control"  name="product_image[]" type="file" required accept=".JPEG,.GIF,.PNG" multiple>
+									<input class="form-control" name="video" type="file" accept=".mp4,.3gp,.flv">
 								</div>
-								<div class="col-sm-5">
-									<label for="expire_date" class=" col-form-label"> Slider Image
-										<i class="text-danger">*</i>
+								<div class="col-sm-4">
+									<label for="expire_date" class=" col-form-label">Product Images
+									</label><br>
+									<input class="form-control"  name="product_image[]" type="file" accept=".JPEG,.GIF,.PNG" multiple>
+								</div>
+								<div class="col-sm-4">
+									<label for="expire_date" class=" col-form-label"> Slider Images
 									</label><br>
 									<input class="form-control"  name="slider_image[]" type="file" required accept=".JPEG,.GIF,.PNG" multiple>
 								</div>
-
 							</div>
-							<div class="row">
-
-								<div class="col-sm-10">
-									<label for="expire_date" class=" col-form-label">Product Discription
-										<i class="text-danger">*</i>
-									</label><br>
-									<textarea class="form-control" id="category_name" name="product_description" type="text" required></textarea>
-								</div>
-							</div>
-
 							<div class="form-group row" style="margin-top: 10px;">
-								<div class="col-sm-10">
+								<div class="col-sm-12">
 									<button type="submit" value="Yes" name="addproduct"class="btn btn-large btn-success" style="padding: 7px;font-size: 21px; float: right;">Save</button>
 								</div>
 							</div>

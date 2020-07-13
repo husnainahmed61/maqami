@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>H & H Marine Products</title>
+	<title>Arabian Deal</title>
 
 	<!-- Favicon and touch icons -->
 	<link rel="shortcut icon" href="<?=base_url();?>assets/images/ddd.png" type="image/x-icon">
@@ -87,7 +87,7 @@
 				<span class="pe-7s-keypad"></span>
 			</a>
 
-			<span style="position: absolute;"><h4 class="hh-main" style="font-family: 'Paytone One', sans-serif; font-size: 45px;color: #2a4715;position: relative;left:55%;">H & H Marine Products</h4></span>
+<!--			<span style="position: absolute;"><h4 class="hh-main" style="font-family: 'Paytone One', sans-serif; font-size: 45px;color: #2a4715;position: relative;left:55%;">Arabian Deal</h4></span>-->
 
 			<div class="navbar-custom-menu">
 

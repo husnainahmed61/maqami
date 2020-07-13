@@ -118,20 +118,24 @@ class Dashboard extends CI_Controller
 			$original_price = $this->input->post('original_price');
 			$discounted_price = $this->input->post('discounted_price');
 			$product_description = $this->input->post('product_description');
+			$updatedimagename = NULL;
 
-			$repar = array(".", ",", " ", ";", "'", "\\", "\"", "/", "(", ")", "?");
-			$uploaddir = './uploads/';
-			$basename = basename($_FILES['video']['name']);
-			$filename = pathinfo($basename, PATHINFO_FILENAME);
-			$ext = pathinfo($basename, PATHINFO_EXTENSION);
-			$repairedfilename = str_replace($repar, "1", $filename);
-			$updatedimagename = rand(10, 99999999) . $repairedfilename . "." . strtolower($ext);
-			$uploadfile4 = $uploaddir . basename($updatedimagename);
-			move_uploaded_file($_FILES['video']['tmp_name'], $uploadfile4);
+			if (isset($_FILES['video']['name']) && !empty($_FILES['video']['name'])){
+				$repar = array(".", ",", " ", ";", "'", "\\", "\"", "/", "(", ")", "?");
+				$uploaddir = './uploads/';
+				$basename = basename($_FILES['video']['name']);
+				$filename = pathinfo($basename, PATHINFO_FILENAME);
+				$ext = pathinfo($basename, PATHINFO_EXTENSION);
+				$repairedfilename = str_replace($repar, "1", $filename);
+				$updatedimagename = rand(10, 99999999) . $repairedfilename . "." . strtolower($ext);
+				$uploadfile4 = $uploaddir . basename($updatedimagename);
+				move_uploaded_file($_FILES['video']['tmp_name'], $uploadfile4);
+			}
 			$res = $this->Admin_model->updateproduct($product_name, $original_price, $discounted_price, $product_description, $updatedimagename, $productid);
-			$this->db->where('post_id', $res)->delete('product_image');
-			$this->db->where('post_id', $res)->delete('slider_image');
-			if ($res > 0) {
+
+			$img = count($_FILES['product_image']['name']);
+			if ($img > 0){
+				$this->db->where('post_id', $res)->delete('product_image');
 				/*================Product image===============*/
 				$repar = array(".", ",", " ", ";", "'", "\\", "\"", "/", "(", ")", "?");
 				$img = count($_FILES['product_image']['name']);
@@ -148,6 +152,11 @@ class Dashboard extends CI_Controller
 						'post_id' => $res);
 					$this->db->insert('product_image', $data);
 				}
+			}
+
+			$count = count($_FILES['slider_image']['name']);
+			if ($count > 0) {
+				$this->db->where('post_id', $res)->delete('slider_image');
 				/*================Slider image=================*/
 				$count = count($_FILES['slider_image']['name']);
 				for ($i = 0; $i < $count; $i++) {

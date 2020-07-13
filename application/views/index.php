@@ -74,7 +74,7 @@
 <!-- footer -->
 <footer class="main-footer">
 	<strong>
-		Copyright © 2019 <a href="http://hhmarineproducts.com" target="_blank">HH Marine Products.</a>  All rights reserved.  	</strong>
+		Copyright © 2019 <a href="http://arbiandeal.com" target="_blank">Arabian Deal.</a>  All rights reserved.  	</strong>
 	<!-- <i class="fa fa-heart color-green"></i> -->
 </footer>
 
