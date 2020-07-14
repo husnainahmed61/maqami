@@ -14,8 +14,13 @@ class Product extends CI_Controller
 	}
 
 	public function singleProduct($slug){
-		print_r($slug);
+		if (isset($slug) && !empty($slug)){
+			$data['postDetail'] = $this->db->select('*')->from('product')->where('uri',$slug)->get()->result_array();
+		}
+
+		$data['slug'] = $slug;
 		$this->load->view('includes/front-header');
+		$this->load->view('product/singleProduct', $data);
 		$this->load->view('includes/front-footer');
 	}
 }
